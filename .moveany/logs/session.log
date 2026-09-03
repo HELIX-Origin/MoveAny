@@ -1,0 +1,363 @@
+MoveAny verify 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\masrcmycd_atj  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\madstx0ghf9em
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[verify] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\masrcmycd_atj  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\madstx0ghf9em
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+DRY RUN: would copy 2 files.
+[dry-run] copy f1.txt
+[dry-run] copy f2.txt
+MoveAny move 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\masrcmycd_atj  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\madstx0ghf9em
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[move pre-check] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+DRY RUN: would copy 2 files.
+[dry-run] copy f1.txt
+[dry-run] copy f2.txt
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_copy_basic0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_copy_basic0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_verify_after_copy0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny verify 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_verify_after_copy0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[verify] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[verify] VERDICT: all source files verified identical on destination. Safe to delete source.
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_repair_after_corrupt0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny repair 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_repair_after_corrupt0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny delete 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[delete] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[delete] VERDICT: all source files verified identical on destination. Safe to delete source.
+=== DELETE PHASE (2 files ready) ===
+=== DELETE PHASE COMPLETE ===
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\src\sub
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_delete_after_verified_cop0\src
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_history_json_schema0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-5\test_history_json_schema0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_copy_basic0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_copy_basic0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_verify_after_copy0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny verify 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_verify_after_copy0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[verify] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[verify] VERDICT: all source files verified identical on destination. Safe to delete source.
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_repair_after_corrupt0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny repair 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_repair_after_corrupt0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+=== REPAIR PHASE: 1 items to repair ===
+=== REPAIR COMPLETE: recovered=1 unrecoverable=0 ===
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny delete 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[delete] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[delete] VERDICT: all source files verified identical on destination. Safe to delete source.
+=== DELETE PHASE (2 files ready) ===
+=== DELETE PHASE COMPLETE ===
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\src\sub
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_delete_after_verified_cop0\src
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_history_json_schema0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-6\test_history_json_schema0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_copy_basic0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_copy_basic0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_verify_after_copy0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny verify 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_verify_after_copy0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_verify_after_copy0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[verify] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[verify] VERDICT: all source files verified identical on destination. Safe to delete source.
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_repair_after_corrupt0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny repair 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_repair_after_corrupt0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_repair_after_corrupt0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+=== REPAIR PHASE: 1 items to repair ===
+=== REPAIR COMPLETE: recovered=1 unrecoverable=0 ===
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0
+MoveAny delete 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\dst
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=2
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[delete] source files=2 dest files=2 identical=2 missing_on_dest=0 different=0 extra_on_dest=0
+[delete] VERDICT: all source files verified identical on destination. Safe to delete source.
+=== DELETE PHASE (2 files ready) ===
+=== DELETE PHASE COMPLETE ===
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\src\sub
+removed empty dir: \\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_delete_after_verified_cop0\src
+MoveAny copy 0.1.0  source=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_history_json_schema0\src  dest=\\?\C:\Users\Joshu\AppData\Local\Temp\pytest-of-Joshu\pytest-7\test_history_json_schema0\dst
+exclude dirs: _build, node_modules, releases
+=== SCAN PHASE (enumeration) ===
+Scanning source tree...
+Scanning destination tree...
+[scan] enumerated source files=2 dest files=0
+=== SCAN PHASE (content comparison) ===
+[scan] checking files present only on destination...
+[copy] source files=2 dest files=0 identical=0 missing_on_dest=2 different=0 extra_on_dest=0
+=== COPY PHASE (non-destructive) ===
+Scan found: already_identical=0, to_copy=2
+>>> copying top-level item: hello.txt
+>>> copying top-level item: sub
+progress 2/2 to-copy, copied=2 errors=0 current=sub
+=== COPY PHASE COMPLETE ===
+copy phase done. ready=2 errors=0

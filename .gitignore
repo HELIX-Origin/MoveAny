@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*~
+.ipynb_checkpoints/
+
+# Virtual Environments
+.env/
+venv/
+ENV/
+env/
+.venv/
+
+# Project-specific
+moveany.egg-info/
+*.egg-info/
+
+# Agents/Skills/Rules/Plans/BUGS templates (internal knowledge base)
+.agents/
+.agents/**/
+opencode.json
+AGENTS.md
+BUGS.md
+PLAN.md
+
+# Build artifacts
+htmlcov/
+.coverage
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp scripts and generated files
+*.py.bak
+/regenerate_icons.py
+/create_new_icons.py
+/regenerate_from_downloads.py
+/reorganize_icons.py
+
+# Windows-specific
+Icon*
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Tests
+tests/
