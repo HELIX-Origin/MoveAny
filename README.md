@@ -6,7 +6,7 @@
 
 ---
 
-## MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
+MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
 verification, staged deletion, and SQLite operation history. No file is deleted until it has been
 independently verified at the destination.
 
