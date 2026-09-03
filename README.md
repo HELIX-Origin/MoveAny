@@ -1,50 +1,52 @@
 # MoveAny
 
-> Safely relocate folders with files over Windows `MAX_PATH` limits — or any files, any platform.
+**Safely relocate folders with files over Windows `MAX_PATH` limits — or any files, any platform.**
 
-MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
-verification, staged deletion, and SQLite operation history. No file is deleted until it has been
-independently verified at the destination.
+[User Guide](docs/user-guide.md) | [Developer Guide](docs/developer-guide.md) | [API Reference](docs/api-reference.md)
 
 ---
 
-## Install
+## MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
+verification, staged deletion, and SQLite operation history. No file is deleted until it has been
+independently verified at the destination.
 
-Requires **Python 3.10+**. Tkinter is needed for the GUI (standard on Windows and macOS; on Linux
-install `python3-tk`).
+## Features
+
+- **Staged copy** - Copy files to a staging area first, SHA-256-verify before any deletion
+- **Manual delete only** - `delete` and `move` require `--yes` confirmation and re-verify each file
+- **Full audit log** - Per-operation logs + SQLite history (queryable with `moveany history`)
+- **Cross-platform** - Works on Windows, macOS, and Linux
+- **GUI interface** - Tkinter-based desktop application with real-time log output
+- **Exclusion management** - Configurable directory names to exclude from operations
+- **Dry-run mode** - See what would happen without making any changes
+
+## Installation
+
+### Via pip (recommended)
 
 ```bash
-pip install -e .            # editable install (recommended for development)
-pip install -e ".[dev]"     # include pytest + ruff for development
+# Basic install (CLI only)
+pip install -e .
+
+# With development dependencies (pytest + ruff)
+pip install -e ".[dev]"
 ```
 
-Or run without installing:
+### Without installing
 
 ```bash
 python -m moveany --help
 ```
 
----
+### Requirements
 
-## Commands
+- **Python 3.10+**
+- **Tkinter** for the GUI (standard on Windows and macOS; on Linux install `python3-tk`)
 
-```
-moveany copy           Scan + copy missing/different files to dest (non-destructive)
-moveany move           Scan, copy, then delete from source in one workflow
-moveany verify         Scan + compare contents; report a pass/fail verdict
-moveany repair         Re-copy missing/damaged files from source to dest
-moveany delete         Manual-only delete phase; re-verifies every file
-moveany list-batches   Preview the batched plan without executing anything
-moveany exclude        Manage excluded directory names (add / remove / list / reset)
-moveany history        Show recent operations from the SQLite log
-moveany config         Inspect and manage persistent configuration
-moveany gui            Launch the Tkinter graphical user interface
-```
-
-### Copy & verify
+## Quick Start
 
 ```bash
-# Preview what would be copied (no changes made)
+# Preview what would be copied (no changes)
 moveany list-batches --source D:\Projects --dest E:\Backup
 
 # Copy missing/different files (never deletes anything)
@@ -53,91 +55,59 @@ moveany copy --source D:\Projects --dest E:\Backup
 # Verify both trees are content-identical
 moveany verify --source D:\Projects --dest E:\Backup
 
-# Dry-run any command to see what would happen
+# Full move workflow (copy + delete with confirmation)
+moveany move --source D:\Projects --dest E:\Backup --yes
+
+# Dry-run any command
 moveany copy --source D:\Projects --dest E:\Backup --dry-run
 ```
 
-### Repair
+## GUI
+
+Launch the graphical user interface:
 
 ```bash
-# Re-copy missing or damaged files after an interrupted copy
-moveany repair --source D:\Projects --dest E:\Backup
-```
-
-### Delete
-
-```bash
-# Delete source files — requires --yes, refuses if anything differs
-moveany delete --source D:\Projects --dest E:\Backup --yes
-```
-
-### Full move workflow
-
-```bash
-moveany move --source D:\Projects --dest E:\Backup --yes
-```
-
-### History
-
-```bash
-# Table view (default)
-moveany history --limit 20
-
-# Filter by operation type
-moveany history --op copy --limit 10
-
-# JSON output (useful for scripting/pipelines)
-moveany history --limit 5 --json
-```
-
-### Configuration
-
-```bash
-# Show current effective config as JSON
-moveany config show
-
-# Reset all exclusion overrides to defaults
-moveany config reset --yes
-```
-
-### GUI
-
-```bash
-# Launch the graphical user interface
 moveany gui
 ```
 
 The GUI walks you through the same staged workflow (Pick → Batch → Copy → Verify → Repair → Move →
 Delete) with real-time log output and confirmation dialogs before any destructive action.
 
----
-
-## Exclusions
-
-Directories like `node_modules`, `_build`, and `releases` are excluded by default (build-on-demand
-artifacts). **`.git` is intentionally _not_ excluded** — repository history must be copied.
-
-```bash
-moveany exclude list                     # show effective exclusion set
-moveany exclude list --available         # also show all known build artifacts
-moveany exclude add dist                 # persist an addition
-moveany exclude remove node_modules      # persist a removal
-moveany exclude reset                    # reset to defaults
-```
-
----
-
-## Safety model
+## Safety Model
 
 | Guarantee | How |
 |---|---|
 | **Copy first** | The copy phase is non-destructive and never deletes. |
-| **Staged deletion** | Every file is copied to a staging area and SHA-256-verified before the source is removed. |
+| **Staged deletion** | Every file is copied and SHA-256-verified before the source is removed. |
 | **Manual delete only** | `delete` and `move` require `--yes` and re-verify each file just before deletion. |
-| **Abort on mismatch** | Delete phase refuses to run if any source file is missing or differs from the destination. |
+| **Abort on mismatch** | Delete phase refuses to run if any source file is missing or differs. |
 | **Full audit log** | Per-category log files + SQLite operation history (queryable with `moveany history`). |
 
----
+## Exclusions
+
+Default exclusions include build artifacts like `node_modules`, `_build`, and `releases`. `.git` is
+intentionally **not** excluded — repository history must be copied.
+
+```bash
+moveany exclude list          # show effective exclusion set
+moveany exclude add dist      # persist an addition
+moveany exclude remove node_modules  # persist a removal
+moveany exclude reset         # reset to defaults
+```
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `moveany copy` | Scan + copy missing/different files to dest (non-destructive) |
+| `moveany move` | Scan, copy, then delete from source in one workflow |
+| `moveany verify` | Scan + compare contents; report a pass/fail verdict |
+| `moveany repair` | Re-copy missing/damaged files from source to dest |
+| `moveany delete` | Manual-only delete phase; re-verifies every file |
+| `moveany list-batches` | Preview the batched plan without executing anything |
+| `moveany exclude` | Manage exclusion directory names (add / remove / list / reset) |
+| `moveany history` | Show recent operations from the SQLite log |
+| `moveany config` | Inspect and manage persistent configuration |
 
 ## Development
 
@@ -149,39 +119,41 @@ python -m pytest tests/ -v
 ruff check moveany/ tests/
 ```
 
-Tests cover: safety/staged-deletion, batcher determinism, path normalization, and full CLI
-integration (copy → verify → repair → delete cycle) using `click.testing.CliRunner` on disposable
-temporary directories.
+See the [Developer Guide](docs/developer-guide.md) for more details on the engine modules,
+CLI architecture, and testing.
 
----
-
-## Project layout
+## Project Layout
 
 ```
 moveany/
-  cli.py          CLI entry point (orchestration only — no engine logic here)
+  cli.py          CLI entry point (orchestration only)
   config.py       CLI-level config
   gui.py          Tkinter GUI application
   cfg/            Config submodules (exclusions, state, SQLite storage)
   modules/        Engine modules — reusable by the GUI
-    batcher.py    Split source tree into per-project batches
-    files.py      Copy, SHA-256 compare, size verify
-    mover.py      Copy + delete orchestration
-    paths.py      Path normalization, UNC, symlink resolution
-    repair.py     Re-copy missing/damaged files
-    reporting.py  Structured log reporter
-    safety.py     Staged deletion with copy-before-delete guarantee
-    verify.py     Content comparison engine
+    batcher.py
+    files.py
+    mover.py
+    paths.py
+    repair.py
+    reporting.py
+    safety.py
+    verify.py
   __main__.py     Enables `python -m moveany`
 
 tests/
-  test_safety.py  Staged deletion unit tests
-  test_batcher.py Batcher determinism + exclusion tests
-  test_paths.py   Path normalization tests
-  test_cli.py     CLI integration tests (CliRunner)
+  test_safety.py
+  test_batcher.py
+  test_paths.py
+  test_cli.py
 
-.github/workflows/ci.yml   GitHub Actions CI (Windows, Ubuntu, macOS × Python 3.10-3.12)
+.dagents/         Knowledge base (agents, skills, rules, templates, plans, bugs)
 ```
 
-The engine logic in `modules/` is deliberately decoupled from the CLI, using plain `source`/`dest`
-parameters so the GUI can import it directly without any CLI dependency.
+The engine logic in `modules/` is deliberately decoupled from the CLI, using plain
+`source`/`dest` parameters so the GUI can import it directly without any CLI dependency.
+
+---
+
+*Generated documentation: [User Guide](docs/user-guide.md), [Developer Guide](docs/developer-guide.md),
+[API Reference](docs/api-reference.md)*
