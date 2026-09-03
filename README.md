@@ -5,6 +5,48 @@
 [User Guide](docs/user-guide.md) | [Developer Guide](docs/developer-guide.md) | [API Reference](docs/api-reference.md)
 
 ---
+```mermaid
+graph TD
+    moveany["moveany/ CLI & GUI"]
+    agents[.agents/ Knowledge Base]
+    docs[docs/ Documentation]
+    tests[tests/ Test Suite]
+    src["moveany/"]
+    
+    moveany --> agents
+    moveany --> docs
+    moveany --> tests
+    
+    subgraph "moveany/modules/"
+        M1[batcher]
+        M2[files]
+        M3[mover]
+        M4[paths]
+        M5[repair]
+        M6[reporting]
+        M7[safety]
+        M8[verify]
+    end
+    
+    moveany --> M1
+    moveany --> M2
+    moveany --> M3
+    moveany --> M4
+    moveany --> M5
+    moveany --> M6
+    moveany --> M7
+    moveany --> M8
+    
+    style moveany fill:#f9f,stroke:#333,stroke-width:2px
+    style agents fill:#bbf,stroke:#333,stroke-width:2px
+```
+```
+
+MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
+verification, staged deletion, and SQLite operation history. No file is deleted until it has been
+independently verified at the destination.
+
+---
 
 MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
 verification, staged deletion, and SQLite operation history. No file is deleted until it has been
@@ -72,6 +114,19 @@ moveany gui
 
 The GUI walks you through the same staged workflow (Pick → Batch → Copy → Verify → Repair → Move →
 Delete) with real-time log output and confirmation dialogs before any destructive action.
+
+```mermaid
+flowchart TD
+    A[Pick Source/Dest] --> B[Select Batch]
+    B --> C[Copy (non-distructive)]
+    C --> D{Verify Identical?}
+    D -- Yes --> E[Proceed to Delete/Move]
+    D -- No --> F[Repair Damaged Files]
+    F --> C
+    E --> G[Delete from Source (requires --yes)]
+    G --> H[Operation Logged in SQLite]
+    G --> I[Abort - No Files Deleted]
+```
 
 ## Safety Model
 
