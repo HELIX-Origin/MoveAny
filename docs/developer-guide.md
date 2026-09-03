@@ -2,28 +2,36 @@
 
 ## Project Structure
 
-```bash
-moveany/
-  cli.py                  # CLI entry point (orchestration only)
-  config.py               # CLI-level config
-  gui.py                  # Tkinter GUI application
-  cfg/                    # Config submodules (exclusions, state, SQLite storage)
-  modules/                # Engine modules — reusable by the GUI
-    batcher.py
-    files.py
-    mover.py
-    paths.py
-    repair.py
-    reporting.py
-    safety.py
-    verify.py
-  __main__.py             # Enables `python -m moveany`
+```mermaid
+graph TD
+moveany["moveany/"]
+agents[.agents/ Knowledge Base]
+docs[docs/ Documentation]
+tests[tests/ Test Suite]
+src["moveany/"]
+moveany --> agents
+moveany --> docs
+moveany --> tests
 
-tests/
-  test_safety.py
-  test_batcher.py
-  test_paths.py
-  test_cli.py
+subgraph "moveany/modules/"
+M1[batcher]
+M2[files]
+M3[mover]
+M4[paths]
+M5[repair]
+M6[reporting]
+M7[safety]
+M8[verify]
+end
+moveany --> M1
+moveany --> M2
+moveany --> M3
+moveany --> M4
+moveany --> M5
+moveany --> M6
+moveany --> M8
+style moveany fill:#f9f,stroke:#333,stroke-width:2px
+style agents fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
 ## Engine Modules

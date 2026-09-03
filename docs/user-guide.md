@@ -35,6 +35,19 @@ python -m moveany --help
 
 MoveAny uses a **staged workflow** to ensure safety:
 
+```mermaid
+flowchart TD
+    A[Pick Source/Dest] --> B[Select Batch]
+    B --> C[Copy (non-distructive)]
+    C --> D{Verify Identical?}
+    D -- Yes --> E[Proceed to Delete/Move]
+    D -- No --> F[Repair Damaged Files]
+    F --> C
+    E --> G[Delete from Source (requires --yes)]
+    G --> H[Operation Logged in SQLite]
+    G --> I[Abort - No Files Deleted]
+```
+
 1. **Pick** source and destination directories
 2. **Select** a batch operation
 3. **Copy** missing/different files (non-destructive)
@@ -45,7 +58,7 @@ MoveAny uses a **staged workflow** to ensure safety:
 ### Common Commands
 
 | Command | Description |
-|---|---|
+| :--- | :--- |
 | `moveany copy` | Scan source and copy missing/different files to dest (non-destructive) |
 | `moveany move` | Scan, copy missing/different, then delete from source |
 | `moveany verify` | Scan both trees and compare contents; report verdict |
@@ -124,10 +137,23 @@ Delete) with real-time log output and confirmation dialogs before any destructiv
 
 ## Safety Model
 
+```mermaid
+flowchart TD
+    A[Copy Phase] --> B[SHA-256 Verify]
+    B --> C{Match?}
+    C -- Yes --> D[Staging Area]
+    C -- No --> E[Repair Damaged Files]
+    E --> B
+    D --> F[Manual Delete Confirmation (--yes)]
+    F --> G[Delete Phase]
+    G --> H[SQLite Log]
+    F -- Abort --> H
+```
+
 MoveAny guarantees the following:
 
 | Guarantee | How |
-|---|---|
+| :--- | :--- |
 | **Copy first** | The copy phase is non-destructive and never deletes. |
 | **Staged deletion** | Every file is copied to a staging area and SHA-256-verified before the source is removed. |
 | **Manual delete only** | `delete` and `move` require `--yes` and re-verify each file just before deletion. |
