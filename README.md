@@ -146,8 +146,6 @@ tests/
   test_batcher.py
   test_paths.py
   test_cli.py
-
-.agents/                  # Knowledge base (agents, skills, rules, templates, plans, bugs)
 ```
 
 The engine logic in `modules/` is deliberately decoupled from the CLI, using plain

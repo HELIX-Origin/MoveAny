@@ -2,36 +2,28 @@
 
 ## Project Structure
 
-```
+```bash
 moveany/
-  cli.py          CLI entry point (orchestration only — no engine logic here)
-  config.py       CLI-level config
-  gui.py          Tkinter GUI application
-  cfg/            Config submodules (exclusions, state, SQLite storage)
-  modules/        Engine modules — reusable by the GUI
-    batcher.py    Split source tree into per-project batches
-    files.py      Copy, SHA-256 compare, size verify
-    mover.py      Copy + delete orchestration
-    paths.py      Path normalization, UNC, symlink resolution
-    repair.py     Re-copy missing/damaged files
-    reporting.py  Structured log reporter
-    safety.py     Staged deletion with copy-before-delete guarantee
-    verify.py     Content comparison engine
-  __main__.py     Enables `python -m moveany`
+  cli.py                  # CLI entry point (orchestration only)
+  config.py               # CLI-level config
+  gui.py                  # Tkinter GUI application
+  cfg/                    # Config submodules (exclusions, state, SQLite storage)
+  modules/                # Engine modules — reusable by the GUI
+    batcher.py
+    files.py
+    mover.py
+    paths.py
+    repair.py
+    reporting.py
+    safety.py
+    verify.py
+  __main__.py             # Enables `python -m moveany`
 
 tests/
-  test_safety.py  Staged deletion unit tests
-  test_batcher.py Batcher determinism + exclusion tests
-  test_paths.py   Path normalization tests
-  test_cli.py     CLI integration tests (CliRunner)
-
-.agents/          Knowledge base (agents, skills, rules, templates, plans, bugs)
-  agents/
-  skills/
-  rules/
-  plans/
-  bugs/
-  templates/
+  test_safety.py
+  test_batcher.py
+  test_paths.py
+  test_cli.py
 ```
 
 ## Engine Modules
