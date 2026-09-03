@@ -195,7 +195,7 @@ flowchart TD
     D -- Yes --> E[Proceed to Delete/Move]
     D -- No --> F[Repair Damaged Files]
     F --> C
-    E --> G[Delete from Source (requires --yes)]
+    E --> G[Delete from Source]
     G --> H[Operation Logged in SQLite]
     G --> I[Abort - No Files Deleted]
 ```
