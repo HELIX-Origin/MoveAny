@@ -38,14 +38,14 @@ MoveAny uses a **staged workflow** to ensure safety:
 ```mermaid
 flowchart TD
     A[Pick Source/Dest] --> B[Select Batch]
-    B --> C[Copy (non-distructive)]
+    B --> C[Copy]
     C --> D{Verify Identical?}
     D -- Yes --> E[Proceed to Delete/Move]
     D -- No --> F[Repair Damaged Files]
     F --> C
-    E --> G[Delete from Source (requires --yes)]
+    E --> G[Delete from Source]
     G --> H[Operation Logged in SQLite]
-    G --> I[Abort - No Files Deleted]
+    G --> I[Abort]
 ```
 
 1. **Pick** source and destination directories
@@ -139,12 +139,12 @@ Delete) with real-time log output and confirmation dialogs before any destructiv
 
 ```mermaid
 flowchart TD
-    A[Copy Phase] --> B[SHA-256 Verify]
+    A[Copy Phase] --> B[SHA 256 Verify]
     B --> C{Match?}
     C -- Yes --> D[Staging Area]
     C -- No --> E[Repair Damaged Files]
     E --> B
-    D --> F[Manual Delete Confirmation (--yes)]
+    D --> F[Manual Delete Confirmation]
     F --> G[Delete Phase]
     G --> H[SQLite Log]
     F -- Abort --> H
