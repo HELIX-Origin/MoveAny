@@ -43,12 +43,84 @@ graph TD
 ```
 
 MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
+
+```mermaid
+graph TD
+    moveany["moveany/ CLI & GUI"]
+    agents[.agents/ Knowledge Base]
+    docs[docs/ Documentation]
+    tests[tests/ Test Suite]
+    src["moveany/"]
+    
+    moveany --> agents
+    moveany --> docs
+    moveany --> tests
+    
+    subgraph "moveany/modules/"
+        M1[batcher]
+        M2[files]
+        M3[mover]
+        M4[paths]
+        M5[repair]
+        M6[reporting]
+        M7[safety]
+        M8[verify]
+    end
+    
+    moveany --> M1
+    moveany --> M2
+    moveany --> M3
+    moveany --> M4
+    moveany --> M5
+    moveany --> M6
+    moveany --> M8
+    
+    style moveany fill:#f9f,stroke:#333,stroke-width:2px
+    style agents fill:#bbf,stroke:#333,stroke-width:2px
+```
+
 verification, staged deletion, and SQLite operation history. No file is deleted until it has been
 independently verified at the destination.
 
 ---
 
 MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
+
+```mermaid
+graph TD
+    moveany["moveany/ CLI & GUI"]
+    agents[.agents/ Knowledge Base]
+    docs[docs/ Documentation]
+    tests[tests/ Test Suite]
+    src["moveany/"]
+    
+    moveany --> agents
+    moveany --> docs
+    moveany --> tests
+    
+    subgraph "moveany/modules/"
+        M1[batcher]
+        M2[files]
+        M3[mover]
+        M4[paths]
+        M5[repair]
+        M6[reporting]
+        M7[safety]
+        M8[verify]
+    end
+    
+    moveany --> M1
+    moveany --> M2
+    moveany --> M3
+    moveany --> M4
+    moveany --> M5
+    moveany --> M6
+    moveany --> M8
+    
+    style moveany fill:#f9f,stroke:#333,stroke-width:2px
+    style agents fill:#bbf,stroke:#333,stroke-width:2px
+```
+
 verification, staged deletion, and SQLite operation history. No file is deleted until it has been
 independently verified at the destination.
 
@@ -136,6 +208,20 @@ flowchart TD
 | **Staged deletion** | Every file is copied and SHA-256-verified before the source is removed. |
 | **Manual delete only** | `delete` and `move` require `--yes` and re-verify each file just before deletion. |
 | **Abort on mismatch** | Delete phase refuses to run if any source file is missing or differs. |
+
+```mermaid
+flowchart TD
+    A[Copy Phase] --> B[SHA-256 Verify]
+    B --> C{Match?}
+    C -- Yes --> D[Staging Area]
+    C -- No --> E[Repair Damaged Files]
+    E --> B
+    D --> F[Manual Delete Confirmation (--yes)]
+    F --> G[Delete Phase]
+    G --> H[SQLite Log]
+    F -- Abort --> I[No Files Deleted]
+```
+
 | **Full audit log** | Per-category log files + SQLite operation history (queryable with `moveany history`). |
 
 ## Exclusions
