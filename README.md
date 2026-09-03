@@ -5,6 +5,7 @@
 [User Guide](docs/user-guide.md) | [Developer Guide](docs/developer-guide.md) | [API Reference](docs/api-reference.md)
 
 ---
+
 ```mermaid
 graph TD
     moveany["moveany/ CLI and GUI"]
@@ -39,7 +40,6 @@ graph TD
     
     style moveany fill:#f9f,stroke:#333,stroke-width:2px
     style agents fill:#bbf,stroke:#333,stroke-width:2px
-```
 ```
 
 MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directories safely** with full
