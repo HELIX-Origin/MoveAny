@@ -76,7 +76,7 @@ Delete) with real-time log output and confirmation dialogs before any destructiv
 ## Safety Model
 
 | Guarantee | How |
-|---|---|
+| :---: | :---: |
 | **Copy first** | The copy phase is non-destructive and never deletes. |
 | **Staged deletion** | Every file is copied and SHA-256-verified before the source is removed. |
 | **Manual delete only** | `delete` and `move` require `--yes` and re-verify each file just before deletion. |
@@ -98,7 +98,7 @@ moveany exclude reset                 # reset to defaults
 ## Commands
 
 | Command | Description |
-|---|---|
+| :---: | :---: |
 | `moveany copy` | Scan + copy missing/different files to dest (non-destructive) |
 | `moveany move` | Scan, copy, then delete from source in one workflow |
 | `moveany verify` | Scan + compare contents; report a pass/fail verdict |
@@ -124,7 +124,7 @@ CLI architecture, and testing.
 
 ## Project Layout
 
-```
+```bash
 moveany/
   cli.py                  # CLI entry point (orchestration only)
   config.py               # CLI-level config
