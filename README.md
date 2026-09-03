@@ -190,7 +190,7 @@ Delete) with real-time log output and confirmation dialogs before any destructiv
 ```mermaid
 flowchart TD
     A[Pick Source/Dest] --> B[Select Batch]
-    B --> C[Copy (non-distructive)]
+    B --> C[Copy files]
     C --> D{Verify Identical?}
     D -- Yes --> E[Proceed to Delete/Move]
     D -- No --> F[Repair Damaged Files]
@@ -216,7 +216,7 @@ flowchart TD
     C -- Yes --> D[Staging Area]
     C -- No --> E[Repair Damaged Files]
     E --> B
-    D --> F[Manual Delete Confirmation (--yes)]
+    D --> F[Manual Delete]
     F --> G[Delete Phase]
     G --> H[SQLite Log]
     F -- Abort --> I[No Files Deleted]
