@@ -7,7 +7,7 @@
 ---
 ```mermaid
 graph TD
-    moveany["moveany/ CLI & GUI"]
+    moveany["moveany/ CLI and GUI"]
     agents[.agents/ Knowledge Base]
     docs[docs/ Documentation]
     tests[tests/ Test Suite]
@@ -46,7 +46,7 @@ MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directorie
 
 ```mermaid
 graph TD
-    moveany["moveany/ CLI & GUI"]
+    moveany["moveany/ CLI and GUI"]
     agents[.agents/ Knowledge Base]
     docs[docs/ Documentation]
     tests[tests/ Test Suite]
@@ -88,7 +88,7 @@ MoveAny is a cross-platform Python CLI (and desktop GUI) for **moving directorie
 
 ```mermaid
 graph TD
-    moveany["moveany/ CLI & GUI"]
+    moveany["moveany/ CLI and GUI"]
     agents[.agents/ Knowledge Base]
     docs[docs/ Documentation]
     tests[tests/ Test Suite]
