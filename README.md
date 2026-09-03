@@ -89,10 +89,10 @@ Default exclusions include build artifacts like `node_modules`, `_build`, and `r
 intentionally **not** excluded — repository history must be copied.
 
 ```bash
-moveany exclude list          # show effective exclusion set
-moveany exclude add dist      # persist an addition
-moveany exclude remove node_modules  # persist a removal
-moveany exclude reset         # reset to defaults
+moveany exclude list                  # show effective exclusion set
+moveany exclude add dist              # persist an addition
+moveany exclude remove node_modules   # persist a removal
+moveany exclude reset                 # reset to defaults
 ```
 
 ## Commands
@@ -126,11 +126,11 @@ CLI architecture, and testing.
 
 ```
 moveany/
-  cli.py          CLI entry point (orchestration only)
-  config.py       CLI-level config
-  gui.py          Tkinter GUI application
-  cfg/            Config submodules (exclusions, state, SQLite storage)
-  modules/        Engine modules — reusable by the GUI
+  cli.py                  # CLI entry point (orchestration only)
+  config.py               # CLI-level config
+  gui.py                  # Tkinter GUI application
+  cfg/                    # Config submodules (exclusions, state, SQLite storage)
+  modules/                # Engine modules — reusable by the GUI
     batcher.py
     files.py
     mover.py
@@ -139,7 +139,7 @@ moveany/
     reporting.py
     safety.py
     verify.py
-  __main__.py     Enables `python -m moveany`
+  __main__.py             # Enables `python -m moveany`
 
 tests/
   test_safety.py
@@ -147,7 +147,7 @@ tests/
   test_paths.py
   test_cli.py
 
-.agents/          Knowledge base (agents, skills, rules, templates, plans, bugs)
+.agents/                  # Knowledge base (agents, skills, rules, templates, plans, bugs)
 ```
 
 The engine logic in `modules/` is deliberately decoupled from the CLI, using plain
