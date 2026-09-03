@@ -51,3 +51,6 @@ Desktop.ini
 
 # Tests
 tests/
+
+# log files
+*.log
